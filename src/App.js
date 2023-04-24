@@ -3,10 +3,9 @@ import './App.css';
 import { Login } from "./pages/login";
 import Cookies from 'universal-cookie'
 import { Chat } from './pages/chat';
-// import { Profile } from './pages/profile';
-// import { Detail } from './pages/detail';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { Chats } from './pages/chats';
+import {  signOut} from 'firebase/auth'
+import { auth } from './config/config-firebase';
 
 const cookies = new Cookies();
 
@@ -17,6 +16,14 @@ function App() {
   const [isAuth, setIsAuth] = useState(cookies.get('auth-token'));
   const [room, setRoom] = useState('');
   const [enter, setEnter] = useState(false)
+
+
+  const handleLogOut = async () => {
+    await signOut( auth);
+    setIsAuth(false);
+    cookies.remove('auth-token')
+    setEnter(false)
+  }
   
   
   
@@ -28,17 +35,16 @@ function App() {
   if (!isAuth) {
     return (
       <div className="App">
-        <Login />
+        <Login setIsAuth={setIsAuth} />
       </div>
     );
-  }
-
-  {if (enter) {
+  } else if (enter) {
     return <div>
     <h3 className='text-center trajia m-5'>you are in the room chat</h3>
     < Chat room={room} />
-    <button className='btn btn-outline-danger mt-5 mx-auto ms-auto text-center' onClick={()=> setRoom(false)}>log out</button>
-  </div>}}
+    <button onClick={()=> handleLogOut()} className='btn btn-outline-danger mt-5 mb-5 mx-auto ms-auto text-center' >log out</button>
+  </div>
+  } else {
   return <div>
     < div className='d-flex flex-column align-items-center mt-5'>
     <input className='form-control w-50 mb-3' onChange={(e)=> setRoom(e.target.value)} />
@@ -46,7 +52,7 @@ function App() {
     </div>
     
   </div>
-
+  }
 }
 
 export default App;
