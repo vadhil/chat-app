@@ -41,7 +41,7 @@ function App() {
     <div className='d-flex align-items-center gap-3 justify-content-center mb-5'>
        <a className='btn btn-warning d-inline-block mr-4' 
        onClick={()=> setEnter(false)}  href="">kembali ke room</a>   
-       <a className='btn btn-danger' 
+       <a className='btn btn-danger alien' 
        onClick={()=> handleLogOut()}  href="">keluar</a>
     </div>
   </div>
@@ -49,7 +49,7 @@ function App() {
   return <div>
     < div className='d-flex flex-column align-items-center mt-5'>
     <input className='form-control w-50 mb-3' onChange={(e)=> setRoom(e.target.value)} />
-    <button className='rounded' onClick={()=> room? setEnter(true): setEnter(false)}>get to room</button>
+    <button className='rounded btn btn-danger alien' onClick={()=> room? setEnter(true): setEnter(false)}>get to room</button>
     </div>
     
   </div>
