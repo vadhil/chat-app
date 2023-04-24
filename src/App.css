@@ -32,9 +32,15 @@
 }
 *, body{
   /* font-family: 'Challans', sans-serif; */
-  /* font-family: 'Alien Invader', sans-serif; */
-  font-family: 'Grytha Angel', sans-serif;
+  /* font-family: 'Grytha Angel', sans-serif; */
+  font-family: 'PT Mono', sans-serif;
                                                 
+  
+                                                
+}
+
+.alien{
+  font-family: 'Alien Invader', sans-serif;
 }
 .chat{
   font-family: 'Challans', sans-serif;

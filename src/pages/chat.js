@@ -3,9 +3,6 @@ import { useEffect, useState } from "react"
 import { auth, db } from "../config/config-firebase"
 
 export const Chat = (props) => {
-    const [users, setUsers] = useState([])
-    const [newUser, setNewUser] = useState('')
-    const [newText, setNewText] = useState('')
     const [newMessage, setNewMessage] = useState([])
     const [messages, setMessages] = useState([])
     const ref = collection(db, "chats")
@@ -25,19 +22,8 @@ export const Chat = (props) => {
         return () => unsubscribe();
     }, [])
 
-    const handleCreate = async() => {
-        await addDoc(ref, {
-            user: newUser,
-            text: newText
-        })
-    }
-
-    const handleRead = async () => {
-        const data = await getDocs(ref)
-        setUsers(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
-    }
+    
     useEffect(() => {
-        handleRead()
     }, [])
 
     const handleSubmit = async(e) => {
@@ -53,31 +39,20 @@ export const Chat = (props) => {
     }
 
 
-
     return <div className="bg-light container w-75  rounded p-5">
-            <h2 className="text-danger">room: {room}</h2>
+            <h2 className="text-danger text-center mb-4 alien">room: {room}</h2>
             <div>
                 
             </div>
             {messages.map((message)=>{
-            return <div><span className="">{message.user + "   "}</span>{message.text}</div>
+            return <div className={auth.currentUser.displayName === message.user? "text-end": "text-start"}><span className="">{message.user + "   "}</span>{message.text}</div>
         })}
 
   
     
-     <form onSubmit={handleSubmit} class="d-flex" action="">
+     <form onSubmit={handleSubmit} class="d-flex mt-2" action="">
         <input value={newMessage} onChange={(e)=> setNewMessage(e.target.value)} class="form-control" placeholder="type message..." />
-        <button class="btn btn-outline-success" >send</button>
+        <button class="btn btn-outline-success alien" >send</button>
       </form>
     </div>
 }
-
-
-
-// {users.map((user)=>{
-//     return <div className="">
-//         <h4 className="">{user.user}</h4>
-//         <p>{user.text}</p>
-//         {/* <p>{user.createdAt}</p> */}
-//     </div>
-// })}   
