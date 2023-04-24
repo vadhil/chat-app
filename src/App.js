@@ -17,16 +17,12 @@ function App() {
   const [room, setRoom] = useState('');
   const [enter, setEnter] = useState(false)
 
-
   const handleLogOut = async () => {
     await signOut( auth);
     setIsAuth(false);
     cookies.remove('auth-token')
     setEnter(false)
   }
-  
-  
-  
   useEffect(()=> {
 
   }, [])
@@ -42,8 +38,10 @@ function App() {
     return <div>
     <h3 className='text-center trajia m-5'>you are in the room chat</h3>
     < Chat room={room} />
-    <button onClick={()=> handleLogOut()} className='btn btn-outline-danger mt-5 mb-5 mx-auto ms-auto text-center' >log out</button>
-    <a className='btn btn-outline-danger text-center mt-5 mb-5 d-block col-3 mx-auto' onClick={()=> handleLogOut()}  href="">sign out</a>
+    <div className='d-flex align-items-center gap-3 justify-content-center mb-5'>
+       <a className='btn btn-warning d-inline-block mr-4  ' onClick={()=> setEnter(false)}  href="">kembali ke room</a>   
+       <a className='btn btn-danger  ' onClick={()=> handleLogOut()}  href="">keluar</a>
+    </div>
   </div>
   } else {
   return <div>

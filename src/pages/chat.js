@@ -39,20 +39,25 @@ export const Chat = (props) => {
     }
 
 
-    return <div className="bg-light container w-75  rounded p-5">
+    return <div className="bg-light container  rounded p-5">
             <h2 className="text-danger text-center mb-4 alien">room: {room}</h2>
-            <div>
-                
+            <div>            
             </div>
-            {messages.map((message)=>{
-            return <div className={auth.currentUser.displayName === message.user? "text-end": "text-start"}><span className="">{message.user + "   "}</span>{message.text}</div>
-        })}
 
-  
-    
-     <form onSubmit={handleSubmit} class="d-flex mt-2" action="">
+            {messages.map((message)=>{
+                return  <div className="d-flex flex-column">
+                <p className={message.user === auth.currentUser.displayName? 
+                "text-end bg-success bg-opacity-25 py-1 px-2 rounded ms-auto ":
+                "p-1 rounded"} >
+                <span className={message.user === auth.currentUser.displayName? 
+                    "d-none": "rounded text-dark text-opacity-50"}>
+                    {message.user + ":"}</span>
+                    {"  " + message.text}</p>
+            </div>
+            })}
+     <form onSubmit={handleSubmit} class="d-flex gap-1 mt-4" action="">
         <input value={newMessage} onChange={(e)=> setNewMessage(e.target.value)} class="form-control" placeholder="type message..." />
-        <button class="btn btn-outline-success alien" >send</button>
+        <button class="btn btn-success alien" >send</button>
       </form>
     </div>
 }
