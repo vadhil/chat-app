@@ -35,15 +35,15 @@ function App() {
 
   {if (enter) {
     return <div>
-    <h3>in the room</h3>
+    <h3 className='text-center trajia m-5'>you are in the room chat</h3>
     < Chat room={room} />
-    <button className='btn btn-outline-danger mt-5 mx-auto' onClick={()=> setRoom(false)}>log out</button>
+    <button className='btn btn-outline-danger mt-5 mx-auto ms-auto text-center' onClick={()=> setRoom(false)}>log out</button>
   </div>}}
   return <div>
-    <>
-    <input onChange={(e)=> setRoom(e.target.value)} />
-    <button onClick={()=> room? setEnter(true): setEnter(false)}>get to room</button>
-    </>
+    < div className='d-flex flex-column align-items-center mt-5'>
+    <input className='form-control w-50 mb-3' onChange={(e)=> setRoom(e.target.value)} />
+    <button className='rounded' onClick={()=> room? setEnter(true): setEnter(false)}>get to room</button>
+    </div>
     
   </div>
 

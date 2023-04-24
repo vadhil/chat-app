@@ -27,6 +27,19 @@
 .App-link {
   color: #61dafb;
 }
+.trajia{
+  font-family:'Trajia', sans-serif;;
+}
+*, body{
+  /* font-family: 'Challans', sans-serif; */
+  font-family: 'Alien Invader', sans-serif;
+                                                
+
+}
+.challans{
+  font-family: 'Challans', sans-serif;
+}
+                                                
 
 @keyframes App-logo-spin {
   from {
