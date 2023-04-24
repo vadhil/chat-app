@@ -19,8 +19,8 @@ export const Login = (props) => {
 
     }
     return<div>
-    <h2 className='mt-5 alien'> Chat App by Fadhil</h2>
-    <div  className='container bg-light mt-5 py-5 col-8 col-md-4 rounded border shadow '>
+    <h2 className='mt-5 trajia'> Chat App by Fadhil</h2>
+    <div  className='container bg-light mt-5 py-5 col-8 col-md-4 rounded  shadow '>
         <div class="row justify-content-center align-items-center g-2">
             <h3>sign in with google</h3>
             <button className='btn btn-success col-6 p-2 alien shadow-sm' onClick={()=> signIn()}>sign in</button>

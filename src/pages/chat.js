@@ -65,8 +65,8 @@ export const Chat = (props) => {
             </div>
             })}
      <form onSubmit={handleSubmit} class="d-flex gap-1 mt-4" action="">
-        <input value={newMessage} onChange={(e)=> setNewMessage(e.target.value)} class="form-control" placeholder="type message..." />
-        <button class="btn btn-success alien" >send</button>
+        <input value={newMessage} onChange={(e)=> setNewMessage(e.target.value)} class="form-control mono" placeholder="type message..." />
+        <button class="btn btn-success mono " >send </button>
       </form>
     </div>
 }

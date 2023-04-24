@@ -28,14 +28,26 @@
   color: #61dafb;
 }
 .trajia{
-  font-family:'Trajia', sans-serif;;
+  font-family:'Trajia', sans-serif;
 }
 *, body{
   /* font-family: 'Challans', sans-serif; */
   /* font-family: 'Grytha Angel', sans-serif; */
-  font-family: 'PT Mono', sans-serif;
+  /* font-family:'Trajia', sans-serif; */
+  font-family: 'Alien Invader', sans-serif;
+
+
 }
-.mono{
+p, a, span, input{
+  font-family: 'PT Mono', sans-serif;
+
+}
+ .btn{
+  font-family: 'Alien Invader', sans-serif;
+
+  /* font-family:'Trajia', sans-serif; */
+}
+a, .mono{
   font-family: 'PT Mono', sans-serif;
 }
 
