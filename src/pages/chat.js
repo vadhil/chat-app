@@ -38,9 +38,18 @@ export const Chat = (props) => {
         setNewMessage('');
     }
 
+    const usersInRoom = [...new Set(messages.map((message)=> message.user))]
+
+    console.log(usersInRoom);
+
 
     return <div className="bg-light container  rounded p-5">
-            <h2 className="text-danger text-center mb-4 alien">room: {room}</h2>
+            <h2 className="text-danger text-center mb-4 alien">user ini this {room} room:</h2>
+                <div className="d-flex gap-1 mb-5">
+                {usersInRoom.map((message, i)=>{
+                  return  <span className="alien p-1 bg-opacity-75 rounded">{" "+ message + " "}</span>
+                })}
+                </div>
             <div>            
             </div>
 

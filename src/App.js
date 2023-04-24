@@ -36,11 +36,13 @@ function App() {
     );
   } else if (enter) {
     return <div>
-    <h3 className='text-center trajia m-5'>you are in the room chat</h3>
+    <h3 className='text-center trajia m-5'>you are in the <span className='text-danger alien'>{room}</span> chat</h3>
     < Chat room={room} />
     <div className='d-flex align-items-center gap-3 justify-content-center mb-5'>
-       <a className='btn btn-warning d-inline-block mr-4  ' onClick={()=> setEnter(false)}  href="">kembali ke room</a>   
-       <a className='btn btn-danger  ' onClick={()=> handleLogOut()}  href="">keluar</a>
+       <a className='btn btn-warning d-inline-block mr-4' 
+       onClick={()=> setEnter(false)}  href="">kembali ke room</a>   
+       <a className='btn btn-danger' 
+       onClick={()=> handleLogOut()}  href="">keluar</a>
     </div>
   </div>
   } else {
